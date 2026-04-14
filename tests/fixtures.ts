@@ -1,5 +1,5 @@
 import { test as base } from "@playwright/test";
-import { TextLineStream } from "../vendor/jsr.io/@std/streams/1.0.10/text_line_stream.ts";
+import { TextLineStream } from "@std/streams/text-line-stream";
 
 export interface LiveServerFixture {
   liveServer: (options?: {

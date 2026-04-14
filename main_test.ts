@@ -1,6 +1,5 @@
-// deno-lint-ignore-file no-import-prefix no-unversioned-import
-import { assertEquals } from "jsr:@std/assert";
-import { getAvailablePort } from "jsr:@std/net/get-available-port";
+import { assertEquals } from "@std/assert";
+import { getAvailablePort } from "@std/net/get-available-port";
 
 Deno.test({
   name: "smoke test executable",
