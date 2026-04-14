@@ -7,16 +7,16 @@
  *
  * ```shell
  * > # start server
- * > deno run --allow-net --allow-read --allow-env --allow-sys jsr:@bbcwqx/live-server
+ * > deno run --allow-net --allow-read --allow-env --allow-sys jsr:@kastrophony/live-server
  * > # show help
- * > deno run jsr:@bbcwqx/live-server --help
+ * > deno run jsr:@kastrophony/live-server --help
  * ```
  *
  * If you want to install and run:
  *
  * ```shell
  * > # install
- * > deno install --allow-net --allow-read --allow-env --allow-sys --global jsr:@bbcwqx/live-server
+ * > deno install --allow-net --allow-read --allow-env --allow-sys --global jsr:@kastrophony/live-server
  * > # start server
  * > live-server
  * > # show help

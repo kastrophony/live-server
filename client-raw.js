@@ -26,7 +26,9 @@
     }
 
     socket = new WebSocket(
-      `${globalThis.location.origin.replace("http", "ws")}/@bbcwqx/live-server`,
+      `${
+        globalThis.location.origin.replace("http", "ws")
+      }/@kastrophony/live-server`,
     );
 
     socket.addEventListener("open", callback);

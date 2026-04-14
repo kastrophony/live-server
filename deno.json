@@ -1,5 +1,5 @@
 {
-  "name": "@bbcwqx/live-server",
+  "name": "@kastrophony/live-server",
   "version": "0.2.5",
   "exports": "./main.ts",
   "tasks": {

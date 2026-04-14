@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-import-prefix no-unversioned-import
 import { assertEquals } from "jsr:@std/assert";
 import { getAvailablePort } from "jsr:@std/net/get-available-port";
 
