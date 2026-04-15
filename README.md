@@ -31,11 +31,11 @@ live-server
 ## usage
 
 ```bash
-@kastrophony/live-server 0.2.5
+@kastrophony/live-server 0.2.6
   Serves a local directory reloads browser when files change.
 
 INSTALL:
-  deno install --allow-net --allow-read --allow-env --allow-sys jsr:@kastrophony/live-server@0.2.5
+  deno install --allow-net --allow-read --allow-env --allow-sys jsr:@kastrophony/live-server@0.2.6
 
 USAGE:
   live-server [path] [options]
