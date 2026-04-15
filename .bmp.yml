@@ -1,7 +1,7 @@
-version: 0.2.5
+version: 0.2.6
 commit: bump to v%.%.%
 files:
   README.md:
-    - "@bbcwqx/live-server@%.%.%"
-    - "@bbcwqx/live-server %.%.%"
+    - "@kastrophony/live-server@%.%.%"
+    - "@kastrophony/live-server %.%.%"
   deno.json: '"version": "%.%.%",'

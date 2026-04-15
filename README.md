@@ -1,6 +1,6 @@
 # live server
 
-[![JSR](https://jsr.io/badges/@bbcwqx/live-server)](https://jsr.io/@bbcwqx/live-server)
+[![JSR](https://jsr.io/badges/@kastrophony/live-server)](https://jsr.io/@kastrophony/live-server)
 
 A live server implementation written in Deno to reload static html pages when
 target files change
@@ -10,7 +10,7 @@ Live server also renders markdown files
 ## run
 
 ```bash
-deno run --allow-net --allow-read --allow-env --allow-sys jsr:@bbcwqx/live-server
+deno run --allow-net --allow-read --allow-env --allow-sys jsr:@kastrophony/live-server
 ```
 
 `allow-sys` is optional, it is used to get the local IP address of the machine
@@ -18,7 +18,7 @@ deno run --allow-net --allow-read --allow-env --allow-sys jsr:@bbcwqx/live-serve
 ## install
 
 ```bash
-deno install --allow-net --allow-read --allow-env --allow-sys --global jsr:@bbcwqx/live-server
+deno install --allow-net --allow-read --allow-env --allow-sys --global jsr:@kastrophony/live-server
 ```
 
 ```bash
@@ -31,11 +31,11 @@ live-server
 ## usage
 
 ```bash
-@bbcwqx/live-server 0.2.5
+@kastrophony/live-server 0.2.6
   Serves a local directory reloads browser when files change.
 
 INSTALL:
-  deno install --allow-net --allow-read --allow-env --allow-sys jsr:@bbcwqx/live-server@0.2.5
+  deno install --allow-net --allow-read --allow-env --allow-sys jsr:@kastrophony/live-server@0.2.6
 
 USAGE:
   live-server [path] [options]

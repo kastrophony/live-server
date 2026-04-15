@@ -62,7 +62,7 @@ jobs:
       - name: Install Deno
         uses: denoland/setup-deno@v2
         with:
-          deno-version: v2.x
+          deno-version: v2.7.11
           cache: true
 
       - name: Deno Install
