@@ -7,6 +7,7 @@ export interface LiveServerFixture {
       path: string;
       content: string;
     }[];
+    fallback?: string;
   }) => Promise<{
     tempDir: string;
     url: string;
@@ -27,15 +28,21 @@ export const test = base.extend<LiveServerFixture>({
           await Deno.writeTextFile(`${tempDir}/${path}`, content);
         }
 
+        const args = [
+          "run",
+          "--allow-read",
+          "--allow-net",
+          "./main.ts",
+          tempDir,
+          "--port=0",
+        ];
+
+        if (options?.fallback) {
+          args.push(`--fallback=${options.fallback}`);
+        }
+
         const command = new Deno.Command(Deno.execPath(), {
-          args: [
-            "run",
-            "--allow-read",
-            "--allow-net",
-            "./main.ts",
-            tempDir,
-            "--port=0",
-          ],
+          args,
           stdout: "piped",
           stderr: "piped",
         });

@@ -31,11 +31,11 @@ live-server
 ## usage
 
 ```bash
-@kastrophony/live-server 0.2.6
+@kastrophony/live-server 0.2.7
   Serves a local directory reloads browser when files change.
 
 INSTALL:
-  deno install --allow-net --allow-read --allow-env --allow-sys jsr:@kastrophony/live-server@0.2.6
+  deno install --allow-net --allow-read --allow-env --allow-sys jsr:@kastrophony/live-server@0.2.7
 
 USAGE:
   live-server [path] [options]
@@ -55,6 +55,8 @@ OPTIONS:
   --no-cors             Disable cross-origin resource sharing
   -v, --verbose         Print request level logs
   -V, --version         Print version information
+  
+  --fallback <FILE>     Fallback file for SPA (e.g., index.html)
 
   All TLS options are required when one is provided.
 ```
