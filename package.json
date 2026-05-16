@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "@std/streams": "npm:@jsr/std__streams@^1.0.17"
+    "@std/streams": "npm:@jsr/std__streams@^1.1.0"
   }
 }

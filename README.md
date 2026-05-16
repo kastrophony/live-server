@@ -55,6 +55,8 @@ OPTIONS:
   --no-cors             Disable cross-origin resource sharing
   -v, --verbose         Print request level logs
   -V, --version         Print version information
+  
+  --fallback <FILE>     Fallback file for SPA (e.g., index.html)
 
   All TLS options are required when one is provided.
 ```

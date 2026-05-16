@@ -74,7 +74,7 @@ async function watch(path: string = "./") {
 
 function main() {
   const serverArgs = parseArgs(Deno.args, {
-    string: ["port", "host", "cert", "key", "header"],
+    string: ["port", "host", "cert", "key", "header", "fallback"],
     boolean: ["help", "dir-listing", "dotfiles", "cors", "verbose", "version"],
     negatable: ["dir-listing", "dotfiles", "cors"],
     collect: ["header"],
@@ -88,6 +88,7 @@ function main() {
       port: undefined,
       cert: "",
       key: "",
+      fallback: "",
     },
     alias: {
       p: "port",
@@ -129,6 +130,7 @@ function main() {
 
   const wild = serverArgs._ as string[];
   const target = resolve(wild[0] ?? "");
+  const fallbackFile = serverArgs.fallback;
 
   const handler = async (req: Request): Promise<Response> => {
     if (req.headers.get("upgrade") === "websocket") {
@@ -149,7 +151,7 @@ function main() {
       return response;
     }
 
-    const response = await serveDir(req, {
+    let response = await serveDir(req, {
       fsRoot: target,
       showDirListing: serverArgs["dir-listing"],
       showDotfiles: serverArgs.dotfiles,
@@ -157,6 +159,30 @@ function main() {
       quiet: !serverArgs.verbose,
       headers,
     });
+
+    // Handle fallback
+    if (response.status === 404 && fallbackFile) {
+      const fallbackPath = resolve(target, fallbackFile);
+      try {
+        const fileInfo = await Deno.stat(fallbackPath);
+        if (fileInfo.isFile) {
+          const fileContent = await Deno.readTextFile(fallbackPath);
+          const headers = new Headers();
+          headers.set("content-type", "text/html; charset=utf-8");
+          headers.set(
+            "content-length",
+            new TextEncoder().encode(fileContent).length.toString(),
+          );
+          // Return fallback with 200 status (SPA behavior)
+          response = new Response(fileContent, {
+            status: 200,
+            headers,
+          });
+        }
+      } catch (_error) {
+        // Fallback file not found or not accessible, return original 404
+      }
+    }
 
     if (response.status === 304) {
       return response;
@@ -297,6 +323,8 @@ OPTIONS:
   --no-cors             Disable cross-origin resource sharing
   -v, --verbose         Print request level logs
   -V, --version         Print version information
+
+  --fallback <FILE>     Fallback file for SPA (e.g., index.html)
 
   All TLS options are required when one is provided.`);
 }
